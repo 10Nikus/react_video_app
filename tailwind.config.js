@@ -10,6 +10,9 @@ module.exports = {
         coolGrey: "#8D99AE",
       },
     },
+    fontFamily: {
+      poppins: ["Poppins_900Black"],
+    },
   },
   plugins: [],
 };
