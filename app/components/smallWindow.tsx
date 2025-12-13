@@ -1,4 +1,5 @@
 import { View, Image, Text } from "react-native";
+import DateView from "./dateView";
 
 interface itemProps {
   id: number;
@@ -18,9 +19,7 @@ export default function SmallWindow({ item }: { item: itemProps }) {
         className="w-44 h-32 rounded-lg"
       />
       <Text className="font-poppins text-sm">{item.title}</Text>
-      <View className="flex-row justify-end">
-        <Text className="text-sm">{item.upload_date}</Text>
-      </View>
+      <DateView date={item.upload_date} />
     </View>
   );
 }
