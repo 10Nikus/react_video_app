@@ -9,7 +9,7 @@ export default function HomeHeader() {
   };
 
   return (
-    <View className="flex-row items-center gap-4 mb-4">
+    <View className="flex-row items-center gap-4 mb-4 px-8">
       <SearchBox />
       <SettingIcon
         width="32"
