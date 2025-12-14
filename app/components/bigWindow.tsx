@@ -5,15 +5,17 @@ export default function bigWindow({
   channel_name,
   title,
   upload_date,
+  image,
 }: {
   channel_name: string;
   title: string;
   upload_date: string;
+  image: string;
 }) {
   return (
     <View className="mb-4 w-full">
       <Image
-        source={require("../../assets/video/puppy.webp")}
+        source={{ uri: image }}
         className="w-full h-64 rounded-2xl mb-2"
       />
       <View className="px-2">

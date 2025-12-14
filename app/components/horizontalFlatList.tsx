@@ -1,5 +1,5 @@
 import { FlatList, Text, View } from "react-native";
-import type { itemProps } from "./smallWindow";
+import type { itemProps } from "../types/itemProps";
 import SmallWindow from "./smallWindow";
 
 export default function HorizontalFlatList({

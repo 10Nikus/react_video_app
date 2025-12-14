@@ -1,15 +1,6 @@
-import { View, Image, Text } from "react-native";
+import { Image, Text, View } from "react-native";
 import DateView from "./dateView";
-
-interface itemProps {
-  id: number;
-  title: string;
-  view_count: number;
-  description: string;
-  upload_date: string;
-  channel_name: string;
-  like_count: number;
-}
+import { itemProps } from "../types/itemProps";
 
 export default function SmallWindow({ item }: { item: itemProps }) {
   return (
@@ -23,5 +14,3 @@ export default function SmallWindow({ item }: { item: itemProps }) {
     </View>
   );
 }
-
-export type { itemProps };

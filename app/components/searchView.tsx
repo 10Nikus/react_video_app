@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import BigWindow from "../components/bigWindow";
 import NavyButton from "./navyButton";
-import type { itemProps } from "./smallWindow";
+import type { itemProps } from "./../types/newItemProps";
 import SortButton from "./sortButton";
 
 export default function SearchView({
@@ -38,9 +38,10 @@ export default function SearchView({
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <BigWindow
-            channel_name={item.channel_name}
-            title={item.title}
-            upload_date={item.upload_date}
+            channel_name={item.snippet.channelTitle}
+            title={item.snippet.title}
+            upload_date={item.snippet.publishedAt}
+            image={item.snippet.thumbnails.high.url}
           />
         )}
       />
