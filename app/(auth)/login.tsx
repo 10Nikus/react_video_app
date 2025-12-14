@@ -1,5 +1,6 @@
-import { Image, Linking, Pressable, Text, View } from "react-native";
 import { router } from "expo-router";
+import { Image, Linking, Text, View } from "react-native";
+import NavyButton from "../components/navyButton";
 
 export default function Index() {
   const openTerms = () => {
@@ -14,12 +15,10 @@ export default function Index() {
         <Text className="font-poppins text-white font-semibold text-2xl ">
           Welcome to the best {"\n"} YouTube-based learning application.
         </Text>
-        <Pressable
-          className="bg-spaceIndigo w-80 h-12 justify-center items-center rounded-2xl"
-          onPress={() => router.navigate("/home")}
-        >
-          <Text className="text-white text-2xl ">Login as guest</Text>
-        </Pressable>
+        <NavyButton
+          text="Log in as guest"
+          onPress={() => router.push("/search")}
+        />
         <View className="flex-row items-center justify-center ">
           <Text className="text-white text-center ">
             By continuing you agree with {"\n"}
