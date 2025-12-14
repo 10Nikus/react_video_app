@@ -2,6 +2,7 @@ import { TextInput, View } from "react-native";
 import SearchIcon from "../../assets/icons/search-icon.svg";
 import { useState } from "react";
 import { useVideoSearch } from "../hooks/useVideoSearch";
+import { router } from "expo-router";
 
 export default function SearchBox() {
   const [query, setQuery] = useState("");
@@ -15,6 +16,7 @@ export default function SearchBox() {
         onSubmitEditing={() => {
           search(query);
           setQuery("");
+          router.push("/search");
         }}
         className="flex-1 h-12  px-4"
         value={query}

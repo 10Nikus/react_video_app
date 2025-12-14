@@ -14,7 +14,7 @@ export default function SearchView({
 }) {
   const [sortBy, setSortBy] = useState("Most Popular");
   const [showModal, setShowModal] = useState(false);
-
+  console.log(data);
   return (
     <>
       <View>

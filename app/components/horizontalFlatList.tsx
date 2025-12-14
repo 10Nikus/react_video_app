@@ -1,5 +1,5 @@
 import { FlatList, Text, View } from "react-native";
-import type { itemProps } from "../types/itemProps";
+import type { itemProps } from "../types/newItemProps";
 import SmallWindow from "./smallWindow";
 
 export default function HorizontalFlatList({
@@ -26,7 +26,7 @@ export default function HorizontalFlatList({
         <FlatList
           horizontal={true}
           data={data}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.id.videoId}
           renderItem={({ item }) => <SmallWindow item={item} />}
         />
       </View>

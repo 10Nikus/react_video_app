@@ -1,6 +1,11 @@
 import { router } from "expo-router";
 import "./globals.css";
+import { useEffect } from "react";
 
 export default function Index() {
-  return router.navigate("/login");
+  useEffect(() => {
+    router.replace("/login");
+  }, []);
+
+  return null;
 }
