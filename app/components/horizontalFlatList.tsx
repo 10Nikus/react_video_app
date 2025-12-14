@@ -1,14 +1,17 @@
 import { FlatList, Text, View } from "react-native";
 import type { itemProps } from "../types/newItemProps";
 import SmallWindow from "./smallWindow";
+import { useVideoSearch } from "../hooks/useVideoSearch";
+import { router } from "expo-router";
 
 export default function HorizontalFlatList({
-  search,
+  query,
   data,
 }: {
-  search: string;
+  query: string;
   data: itemProps[];
 }) {
+  const { search } = useVideoSearch();
   return (
     <View>
       <View className="px-8 h-80">
@@ -17,9 +20,15 @@ export default function HorizontalFlatList({
           style={{ marginTop: 40 }}
         >
           <Text className="font-poppins text-black font-semibold text-2xl  mb-4">
-            {search}
+            {query}
           </Text>
-          <Text className="font-poppins text-spaceIndigo underline text-sm mb-4">
+          <Text
+            className="font-poppins text-spaceIndigo underline text-sm mb-4"
+            onPress={() => {
+              search(query);
+              router.push("/search");
+            }}
+          >
             Show more
           </Text>
         </View>
