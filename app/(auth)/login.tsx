@@ -17,7 +17,7 @@ export default function Index() {
         </Text>
         <NavyButton
           text="Log in as guest"
-          onPress={() => router.push("/search")}
+          onPress={() => router.push("/home")}
         />
         <View className="flex-row items-center justify-center ">
           <Text className="text-white text-center ">
