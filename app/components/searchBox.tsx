@@ -11,13 +11,15 @@ export default function SearchBox() {
     <View className="border rounded-2xl flex-row items-center flex-1 px-4">
       <SearchIcon width="24" height="24" color="black" />
       <TextInput
-        onChange={(e) => setQuery(e.nativeEvent.text)}
+        onChangeText={(text) => setQuery(text)}
         onSubmitEditing={() => {
           search(query);
           setQuery("");
         }}
         className="flex-1 h-12  px-4"
         value={query}
+        returnKeyType="search"
+        placeholder="Search videos..."
       />
     </View>
   );

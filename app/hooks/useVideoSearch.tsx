@@ -1,26 +1,25 @@
-import { useState } from "react";
 import { fetchVideos } from "../services/api";
+import { useVideoStore } from "../data/store";
 
 export function useVideoSearch() {
-  const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const setStoredVideos = useVideoStore((state) => state.setVideos);
+  const setIsLoading = useVideoStore((state) => state.setIsLoading);
 
   const search = async (query: string) => {
     if (!query.trim()) return;
-
-    setLoading(true);
-    setError(null);
+    setIsLoading(true);
 
     try {
       const results = await fetchVideos(query);
-      setVideos(results);
+      setStoredVideos(results);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to fetch videos");
+      console.error(
+        err instanceof Error ? err.message : "Failed to fetch videos"
+      );
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
-  return { videos, loading, error, search };
+  return { search };
 }

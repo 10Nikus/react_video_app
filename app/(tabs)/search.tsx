@@ -13,7 +13,9 @@ export default function search() {
       style={{ paddingTop: insets.top }}
     >
       <SearchHeader />
-      <SearchView search="React Native" data={videoData.videos} />
+      {videoData.videos && (
+        <SearchView search="React Native" data={videoData.videos} />
+      )}
     </View>
   );
 }
