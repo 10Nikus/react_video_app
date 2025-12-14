@@ -57,6 +57,7 @@ export default function SearchView({
             title={item.snippet.title}
             upload_date={item.snippet.publishedAt}
             image={item.snippet.thumbnails.high.url}
+            id={item.id.videoId}
           />
         )}
       />
