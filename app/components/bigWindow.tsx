@@ -23,7 +23,7 @@ export default function bigWindow({
           {channel_name}
         </Text>
         <Text className="font-poppins text-gray-600">{title}</Text>
-        <DateView date={upload_date} />
+        <DateView date={upload_date.substring(0, 10)} />
       </View>
     </View>
   );

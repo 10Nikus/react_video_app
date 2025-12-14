@@ -4,10 +4,12 @@ import { useVideoStore } from "../data/store";
 export function useVideoSearch() {
   const setStoredVideos = useVideoStore((state) => state.setVideos);
   const setIsLoading = useVideoStore((state) => state.setIsLoading);
+  const setQuery = useVideoStore((state) => state.setQuery);
 
   const search = async (query: string) => {
     if (!query.trim()) return;
     setIsLoading(true);
+    setQuery(query);
 
     try {
       const results = await fetchVideos(query);

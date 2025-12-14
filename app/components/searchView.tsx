@@ -35,7 +35,7 @@ export default function SearchView({
 
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id.videoId}
         renderItem={({ item }) => (
           <BigWindow
             channel_name={item.snippet.channelTitle}
