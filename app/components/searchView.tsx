@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import BigWindow from "../components/bigWindow";
-import NavyButton from "./navyButton";
 import type { itemProps } from "./../types/newItemProps";
+import NavyButton from "./navyButton";
 import SortButton from "./sortButton";
 
 export default function SearchView({
@@ -14,7 +14,22 @@ export default function SearchView({
 }) {
   const [sortBy, setSortBy] = useState("Most Popular");
   const [showModal, setShowModal] = useState(false);
-  console.log(data);
+  const [sortedData, setSortedData] = useState<itemProps[]>(data);
+
+  useEffect(() => {
+    let sorted = [...data];
+    if (sortBy === "Latest") {
+      sorted.sort((a, b) =>
+        a.snippet.publishedAt < b.snippet.publishedAt ? 1 : -1
+      );
+    } else if (sortBy === "Oldest") {
+      sorted.sort((a, b) =>
+        a.snippet.publishedAt > b.snippet.publishedAt ? 1 : -1
+      );
+    }
+    setSortedData(sorted);
+  }, [sortBy, data]);
+
   return (
     <>
       <View>
@@ -34,7 +49,7 @@ export default function SearchView({
       </View>
 
       <FlatList
-        data={data}
+        data={sortedData}
         keyExtractor={(item) => item.id.videoId}
         renderItem={({ item }) => (
           <BigWindow
